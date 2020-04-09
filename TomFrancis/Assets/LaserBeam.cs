@@ -54,13 +54,13 @@ public class LaserBeam : MonoBehaviour
 
     void UpdateLength()
     {
-        //Raycast from the location of the cube forwards
+        // Raycast from the location of the cube forwards
         RaycastHit[] hit;
         hit = Physics.RaycastAll(this.transform.position, this.transform.forward, this.maxLength);
         int i = 0;
         while (i < hit.Length)
         {
-            //Check to make sure we aren't hitting triggers but colliders
+            // Check to make sure we aren't hitting triggers but colliders
             if (!hit[i].collider.isTrigger)
             {
                 this.length = (int)Mathf.Round(hit[i].distance) + 2;
@@ -68,7 +68,7 @@ public class LaserBeam : MonoBehaviour
                 // Move our End Effect particle system to the hit point and start playing it
                 if (this.endEffect)
                 {
-                    this.endEffect.transform.position = hit[i].point;
+                    //   this.endEffect.transform.position = hit[i].point;
                     if (!this.endEffect.isPlaying)
                     {
                         this.endEffect.Play();
