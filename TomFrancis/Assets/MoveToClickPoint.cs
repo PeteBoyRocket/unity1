@@ -12,7 +12,7 @@ public class MoveToClickPoint : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && !Input.GetKeyDown(KeyCode.LeftShift))
         {
             RaycastHit hit;
 

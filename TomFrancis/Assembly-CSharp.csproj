@@ -56,6 +56,8 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\BulletBehaviour.cs" />
+     <Compile Include="Assets\LaserBeam.cs" />
+     <Compile Include="Assets\LaserGun.cs" />
      <Compile Include="Assets\MoveToClickPoint.cs" />
      <Compile Include="Assets\PlayerBehaviour.cs" />
  <Reference Include="Unity.Timeline.Editor">
