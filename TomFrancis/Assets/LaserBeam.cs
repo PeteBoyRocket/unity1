@@ -21,7 +21,6 @@ public class LaserBeam : MonoBehaviour
         this.lineRenderer.startWidth = this.laserWidth;
         this.lineRenderer.endWidth = this.laserWidth;
 
-        // this.myTransform = this.transform;
         this.endEffect = this.GetComponentInChildren<ParticleSystem>();
     }
 
@@ -68,7 +67,7 @@ public class LaserBeam : MonoBehaviour
                 // Move our End Effect particle system to the hit point and start playing it
                 if (this.endEffect)
                 {
-                    //   this.endEffect.transform.position = hit[i].point;
+                    this.endEffect.transform.position = hit[i].point;
                     if (!this.endEffect.isPlaying)
                     {
                         this.endEffect.Play();
