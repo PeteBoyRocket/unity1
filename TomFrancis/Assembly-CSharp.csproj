@@ -56,6 +56,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\BulletBehaviour.cs" />
+     <Compile Include="Assets\EnemyBehaviour.cs" />
      <Compile Include="Assets\LaserBeam.cs" />
      <Compile Include="Assets\LaserGun.cs" />
      <Compile Include="Assets\MoveToClickPoint.cs" />
