@@ -57,10 +57,12 @@
   <ItemGroup>
      <Compile Include="Assets\BulletBehaviour.cs" />
      <Compile Include="Assets\EnemyBehaviour.cs" />
+     <Compile Include="Assets\HealthSystem.cs" />
      <Compile Include="Assets\LaserBeam.cs" />
      <Compile Include="Assets\LaserGun.cs" />
      <Compile Include="Assets\MoveToClickPoint.cs" />
      <Compile Include="Assets\PlayerBehaviour.cs" />
+     <Compile Include="Assets\References.cs" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>E:/Code/unity1/TomFrancis/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>

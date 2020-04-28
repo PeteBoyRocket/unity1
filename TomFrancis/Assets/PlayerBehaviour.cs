@@ -12,6 +12,7 @@ public class PlayerBehaviour : MonoBehaviour
     void Start()
     {
         this.secondsSinceLastShot = this.secondsBetweenShots;
+        References.thePlayer = this.gameObject;
     }
 
     // Update is called once per frame

@@ -4,6 +4,7 @@ public class BulletBehaviour : MonoBehaviour
 {
     public float speed;
     public float secondsUntilDestroyed;
+    public float damage;
 
     // Start is called before the first frame update
     void Start()
@@ -40,7 +41,17 @@ public class BulletBehaviour : MonoBehaviour
         var enemyBehaviour = collision.gameObject.GetComponent<EnemyBehaviour>();
         if (enemyBehaviour != null)
         {
-            Destroy(collision.gameObject);
+            var healthSystem = collision.gameObject.GetComponent<HealthSystem>();
+            if (healthSystem == null)
+            {
+                Destroy(collision.gameObject);
+
+            }
+            else
+            {
+                healthSystem.TakeDamage(this.damage);
+            }
+
             Destroy(this.gameObject);
         }
     }
