@@ -2,26 +2,42 @@
 
 public class HealthSystem : MonoBehaviour
 {
-    public float health;
+    public float maxHealth;
+    public GameObject healthBarPrefab;
+    private HealthBarBehaviour healthBarBehaviour;
+    private float currentHealth;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        this.currentHealth = this.maxHealth;
+        var healthBarObject = Instantiate(this.healthBarPrefab, References.canvas.transform);
+        this.healthBarBehaviour = healthBarObject.GetComponent<HealthBarBehaviour>();
+    }
 
     public void TakeDamage(float damageAmount)
     {
-        this.health -= damageAmount;
-        if (this.health <= 0)
+        this.currentHealth -= damageAmount;
+        if (this.currentHealth <= 0)
         {
             Destroy(this.gameObject);
         }
     }
 
-    // Start is called before the first frame update
-    void Start()
+    private void OnDestroy()
     {
-
+        if (this.healthBarBehaviour != null)
+        {
+            Destroy(this.healthBarBehaviour.gameObject);
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
+        var currentHealthFraction = this.currentHealth / this.maxHealth;
+        this.healthBarBehaviour.ShowHealthFraction(currentHealthFraction);
 
+        this.healthBarBehaviour.transform.position = Camera.main.WorldToScreenPoint(this.transform.position + Vector3.up * 2);
     }
 }
