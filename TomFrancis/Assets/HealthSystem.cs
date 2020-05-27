@@ -4,6 +4,7 @@ public class HealthSystem : MonoBehaviour
 {
     public float maxHealth;
     public GameObject healthBarPrefab;
+    public GameObject deathEffectPrefab;
     private HealthBarBehaviour healthBarBehaviour;
     private float currentHealth;
 
@@ -20,6 +21,11 @@ public class HealthSystem : MonoBehaviour
         this.currentHealth -= damageAmount;
         if (this.currentHealth <= 0)
         {
+            if (this.deathEffectPrefab != null)
+            {
+                Instantiate(this.deathEffectPrefab, this.transform.position, this.transform.rotation);
+            }
+
             Destroy(this.gameObject);
         }
     }
